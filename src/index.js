@@ -53,7 +53,7 @@ const App = ()=> {
       <h1>Vacation Planner</h1>
       <VacationForm users={users} places={places} bookVacation={bookVacation}/>
       <div className='container'>
-        <Vacations vacations={vacations} places={places} cancelVacation={cancelVacation}/>
+        <Vacations vacations={vacations} places={places} cancelVacation={cancelVacation} users={users}/>
         <Users users={users} vacations={vacations}/>
         <Places places={places} vacations={vacations}/>
       </div>
