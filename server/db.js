@@ -17,8 +17,8 @@ const seed = async() => {
         );
         CREATE TABLE vacations(
             id SERIAL PRIMARY KEY,
-            user_id INTEGER REFERENCES users(id),
-            place_id INTEGER REFERENCES places(id),
+            user_id INTEGER REFERENCES users(id) NOT NULL,
+            place_id INTEGER REFERENCES places(id) NOT NULL,
             created_at TIMESTAMP DEFAULT now()
         );
 

@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+}
+
+.container > * {
+    flex: 1;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+}
+form > * {
+    margin: 1rem;
+}

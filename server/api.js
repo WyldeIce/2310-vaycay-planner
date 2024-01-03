@@ -44,4 +44,20 @@ app.get('/vacations', async(req,res,next) => {
     }
 })
 
+app.post('/vacations', async(req,res,next)=> {
+    try {
+        const SQL = `
+            INSERT INTO vacations(user_id, place_id)
+            VALUES ($1, $2)
+            RETURNING *
+        `
+        console.log(req.body)
+        const response = await client.query(SQL, [req.body.user_id, req.body.place_id])
+        res.send(response.rows[0])
+    } catch (error) {
+        next(error)
+        
+    }
+})
+
 module.exports = app
