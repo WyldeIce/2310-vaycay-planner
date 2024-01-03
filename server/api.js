@@ -60,4 +60,17 @@ app.post('/vacations', async(req,res,next)=> {
     }
 })
 
+app.delete('/vacations/:id', async(req,res,next) => {
+    try {
+        const SQL = `
+            DELETE FROM vacations
+            WHERE id = $1
+        `
+        await client.query(SQL, [req.params.id])
+        res.sendStatus(204)
+    } catch (error) {
+        next(error)
+    }
+})
+
 module.exports = app

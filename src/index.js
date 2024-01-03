@@ -43,12 +43,17 @@ const App = ()=> {
 
   }
 
+  const cancelVacation = async(vacation) => {
+    await axios.delete(`/api/vacations/${vacation.id}`)
+    setVacations(vacations.filter((_vacation) => {return _vacation.id !== vacation.id}))
+  }
+
   return (
     <div>
       <h1>Vacation Planner</h1>
       <VacationForm users={users} places={places} bookVacation={bookVacation}/>
       <div className='container'>
-        <Vacations vacations={vacations} places={places}/>
+        <Vacations vacations={vacations} places={places} cancelVacation={cancelVacation}/>
         <Users users={users} vacations={vacations}/>
         <Places places={places} vacations={vacations}/>
       </div>
